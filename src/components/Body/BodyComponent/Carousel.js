@@ -10,24 +10,31 @@ import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-
+const useStyles = makeStyles((theme) => ({
+    image: {
+        maxHeight: "100%",
+        maxWidth: "100%"
+    }
+}))
 
 
 const Carousel = (props) => {
+    const classes = useStyles()
+
     return (
         <div >
-            <Container >
+            <Container maxWidth="xl">
                 <Grid item xs={12}>
                     <Slider >
-                        {props.carouselImg.map((item,key)=> {
+                        {props.carouselImg.map((item, key) => {
                             return (
                                 <React.Fragment key={key}>
-                                    <Card >
+                                    <Card className={classes.image}>
                                         <CardActionArea >
-                                            <CardMedia 
+                                            <CardMedia
                                                 component="img"
-                                                image ={item}
-                                                title ="truong quang vuong"
+                                                image={item}
+                                                title="truong quang vuong"
                                             />
                                         </CardActionArea>
                                     </Card>

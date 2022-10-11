@@ -1,7 +1,9 @@
 // rcc
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import MainContainer from '../../components/MainContainer';
-
+//  hook
+import * as action from "../../components/ListProduct/module/action/action"
 export default function HomePage() {
     const titleTrending = "Trending"
     const titleMoreNike = "MoreNike"
@@ -93,6 +95,10 @@ export default function HomePage() {
             title8: "Kids' Socks",
         },
     ];
+    const dispatch  = useDispatch();
+    useEffect(() => {
+        dispatch(action.actGetProductAPI("male", "shoes"))
+    },[])
     return (
         <div>
             <MainContainer

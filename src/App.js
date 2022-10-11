@@ -1,10 +1,16 @@
 import HomePage from './pages/Home/Home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DetailProductPage from './pages/DetailProduct/DetailProductPage';
 
 function App() {
   return (
-    <div>
-      <HomePage />
-
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/detailPage/:id" element={<DetailProductPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
