@@ -6,6 +6,8 @@ import * as ActionType2 from "../ListProduct/module/constant/constant"
 import * as Action2 from "../ListProduct/module/action/action"
 import { useSelector, useDispatch } from 'react-redux'
 import ProductImage from './ProductDetailComponent/ProductImage'
+import ProductMain from './ProductDetailComponent/ProductMain'
+import ProductMoreDetail from './ProductDetailComponent/ProductMoreDetail'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -17,7 +19,7 @@ const ProductDetail = ({ id }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const [detailProduct, setDetailProduct] = React.useState(null)
-  React.useEffect(() => {
+  React.useEffect(() => { 
     const callAPI = async () => {
       dispatch(
         Action2.createAction({
@@ -93,9 +95,10 @@ const ProductDetail = ({ id }) => {
               </Grid>
             </Hidden>
             <Grid item sm={12} md={4}>
-              {/* product main */}
+              <ProductMain detailProduct = {dataLazyLoad} getIndexImg={getIndexImg} indexPress ={0}
+              />
               <Skeleton >
-                {/* product more detail  */}
+                <ProductMoreDetail />
               </Skeleton>
             </Grid>
           </Grid>
@@ -113,11 +116,13 @@ const ProductDetail = ({ id }) => {
                     <ProductImage detailProduct={detailProduct} index={index} />
                   </Grid>
                 </Hidden>
-                <Grid item={12} md={4}>
-                    {/* product main */}
-                    {/* product more detail */}
+                <Grid item sm={12} md={4}>
+                <ProductMain detailProduct = {detailProduct} getIndexImg={getIndexImg} indexPress ={index}
+              />
+                  <ProductMoreDetail />
                 </Grid>
               </Grid>
+
             </div>
           }
         </div>
@@ -128,3 +133,5 @@ const ProductDetail = ({ id }) => {
 }
 
 export default ProductDetail
+
+
