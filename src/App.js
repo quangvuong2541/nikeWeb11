@@ -1,14 +1,17 @@
 import HomePage from './pages/Home/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DetailProductPage from './pages/DetailProduct/DetailProductPage';
+import NavBar from './components/Navbar/NavBar';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/detailPage/:id" element={<DetailProductPage />} />
+          <Route element={<NavBar />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/detailPage/:id" element={<DetailProductPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
