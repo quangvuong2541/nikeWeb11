@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, Icon, makeStyles, Slide } from '@mui/material'
+import { Dialog, Icon, Slide } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from '@mui/material';
 import { connect } from 'react-redux';
@@ -9,7 +9,7 @@ import SignUp from './SignUp';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { LOGOUT } from './Redux/Contansts/contants';
 import { Link } from 'react-router-dom';
-
+import { makeStyles } from '@mui/styles';
 
 const preventDefault = (event) => event.preventDefault();
 const useStyles = makeStyles((theme) => ({
@@ -100,4 +100,24 @@ const SignIn = (props) => {
   )
 }
 
-export default SignIn
+const mapStateToProps = (state) => {
+  return {
+    open: state.reducerSignInSignUp.open,
+    openSU: state.reducerSignInSignUp.openSU,
+    userLocal: state.reducerSignInSignUp.userLocal,
+    isAdmin: state.reducerSignInSignUp.isAdmin,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    emitOpen: (valueOpen) => {
+      dispatch(action.emitOpenAction(valueOpen))
+    },
+  
+    
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
