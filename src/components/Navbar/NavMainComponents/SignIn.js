@@ -148,8 +148,36 @@ const useStyles = makeStyles((theme) => ({
   joinUs: {
     color: "black"
   },
-
-
+  userMenuContainer: {
+    padding: "24px 24px 24px 18px",
+    position: "absolute",
+    right: 0,
+    zIndex: 10,
+    width: 200,
+    fontSize: 14,
+    borderRadius: 10,
+    textAlign: "left",
+    backgroundColor: "white"
+  },
+  userMenuHeader: {
+    padding: "4px 8px",
+    marginBottom: 12,
+    fontSize: 16,
+    cursor: "pointer"
+  },
+  userMenuItem: {
+    color: "#757575",
+    padding: "4px 8px",
+    cursor: "pointer",
+    "&:hover": {
+      color: "black"
+    },
+    width: "100%"
+  },
+  userIcon: {
+    margin: 10,
+    height: 28,
+  }
 }))
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />
@@ -166,14 +194,21 @@ const SignIn = (props) => {
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur"
   })
+  //  register giúp cho chúng ta validation
+  // handlesubmit giúp cho chúng ta lấy được data từ form input
   const onSubmitSignIn = (data, e) => {
+    let form = document.getElementById("formSignIn")
+    form.reset()
+    props.callAPILogin(data)
 
   }
   const onCloseSignIn = (data, e) => {
-
+    let form = document.getElementById("formSignIn")
+    form.reset()
   }
   const onSubmitSignUp = () => {
-
+    let form = document.getElementById("formSignIn")
+    form.reset()
   }
   let { userLocal } = props;
   return (
@@ -466,7 +501,7 @@ const mapStateToProps = (state) => {
   return {
     open: state.reducerSignInSignUp.open,
     openSU: state.reducerSignInSignUp.openSU,
-    userLocal: state.reducerSignInSignUp.userLocal,
+    userLocal: state.reducerSignInSignUp.user,
     isAdmin: state.reducerSignInSignUp.isAdmin,
   }
 }
