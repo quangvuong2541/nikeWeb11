@@ -3,16 +3,14 @@ import { makeStyles } from '@mui/styles'
 import { Alert, Grid, Skeleton } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import ModalTranstion from './Modal';
-
+import * as action from "../../Cart /Module/Action/action"
+import * as actionType from "../../Cart /Module/Contants/contants"
 
 const useStyles = makeStyles((theme) => ({
   ProductContainer: {
     padding: "0 44px",
     fontSize: 16,
     lineHeight: 1.7,
-    // [theme.breakpoints.down("md")]: {
-    //   padding: "0 8px",
-    // },
   },
 
   ShoesType: {
@@ -110,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "4px",
     opacity: 0.8,
   },
- 
+
   AlertSize: {
     margin: "20px 0px"
   },
@@ -182,7 +180,13 @@ function ProductMain({
   const addProduct = () => {
     if (size) {
       handleOpen();
-   
+      dispatch(
+        action.createAction({
+          type: actionType.ADD_TO_CARD,
+          payload: productDispatch
+        })
+      )
+
     }
   }
   // để dành sau khi hoàn thành xong chức năng login
@@ -355,12 +359,12 @@ function ProductMain({
           </button>
         }
       </Grid>
-        <ModalTranstion
-          open ={open}
-          handleOpen = {handleOpen}
-          handleClose = {handleClose}
-          productDispatch = {productDispatch}
-        />
+      <ModalTranstion
+        open={open}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        productDispatch={productDispatch}
+      />
     </Grid>
   );
 }
