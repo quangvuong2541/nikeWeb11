@@ -1,0 +1,45 @@
+.modal {
+  cursor: pointer;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  opacity: 0;
+  overflow-y: auto;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__container {
+  cursor: default;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 380px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 4px 1px rgba(26%, 26%, 26%, 0.5);
+  border-radius: 10px;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+.modal.active .modal__container {
+  top: 60px;
+}
+
+@media only screen and (max-width: 767px) {
+  .modal__container {
+    max-width: calc(100% - 40px);
+    margin: auto;
+  }
+
+  .modal.active .modal__container {
+    top: 40px;
+  }
+}

@@ -1,0 +1,22 @@
+.cart {
+  margin-top: 112px;
+}
+
+.cart__item {
+  display: flex;
+  gap: 20px;
+}
+
+.cart__image {
+  width: 300px;
+}
+.cart__info {
+}
+.cart__name {
+}
+.cart__price {
+}
+.cart__quantity {
+}
+.cart__size {
+}

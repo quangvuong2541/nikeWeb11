@@ -1,0 +1,78 @@
+.signin {
+  text-align: center;
+}
+
+.signin__heading {
+  max-width: 300px;
+  margin: auto;
+  font-size: 2.6rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.signin__input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px 12px;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 4px;
+}
+
+.signin__help {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #8d8d8d;
+}
+
+.signin__keep {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.signin__keep > input {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 4px;
+}
+
+.signin__forgot {
+  cursor: pointer;
+  color: rgba(141, 141, 141, 0.5);
+}
+
+.signin__policy {
+  max-width: 300px;
+  margin: auto;
+  font-size: 1.2rem;
+  color: #8d8d8d;
+}
+
+.signin__policy > p > span {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signin__btn {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px 30px;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+.signin__signup {
+  font-size: 1.2rem;
+  color: #8d8d8d;
+}
+
+.signin__signup > p > span {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #000;
+}
